@@ -13,7 +13,7 @@ def create_app():
     comments_repository = MongoCommentsRepository(motor_client)
     comments_controller = CommentsController(comments_repository)
 
-    @app.get("/comments")
+    @app.get("/comments", description="Get all comments")
     async def get_all_comments(  # pyright: ignore[reportUnusedFunction]
         response: Response,
     ) -> ApiResponse[list[CommentEntity]]:
