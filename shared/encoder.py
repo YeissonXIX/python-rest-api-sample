@@ -1,8 +1,10 @@
 from bson.objectid import ObjectId
 from datetime import datetime
+from .types import MongoDocuments, Document
 
-def to_json(response: dict | list) -> dict | list:
-    def serialize(obj: dict) -> dict:
+
+def serialize_mongo_documents(documents: MongoDocuments) -> MongoDocuments:
+    def serialize(obj: Document) -> Document:
         for key, value in obj.items():
             if isinstance(value, ObjectId):
                 obj[key] = str(value)
@@ -10,6 +12,6 @@ def to_json(response: dict | list) -> dict | list:
                 obj[key] = value.isoformat()
         return obj
 
-    if isinstance(response, list):
-        return [serialize(item) for item in response]
-    return serialize(response)
+    if isinstance(documents, list):
+        return [serialize(item) for item in documents]
+    return serialize(documents)

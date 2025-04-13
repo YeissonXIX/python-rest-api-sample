@@ -1,0 +1,9 @@
+{
+    "strict": [
+        "."
+    ],
+    "reportAssignmentType": false,
+    "reportUnknownMemberType": "none",
+    "reportExplicitAny": false,
+    "reportAny": false
+}

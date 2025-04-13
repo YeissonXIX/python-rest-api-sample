@@ -1,7 +1,7 @@
-from typing import Any, Optional
+from pydantic import BaseModel
 
-class Result:
-    def __init__(self, success: bool = False, data: Optional[Any] = None, error: Optional[str] = None):
-        self.success = success
-        self.data = data
-        self.error = error
+
+class Result[T](BaseModel):
+    success: bool = False
+    data: T | None = None
+    message: str | None = None
