@@ -1,8 +1,8 @@
 from quart import Blueprint, Response
-from domain.application.comments_controller import CommentsController
+from controllers.quart_comments_controller import QuartCommentsController
 
 
-def create_comments_router(comments_controller: CommentsController):
+def create_comments_router(comments_controller: QuartCommentsController):
     blueprint = Blueprint("comments", __name__, url_prefix="/comments")
 
     @blueprint.route("/")

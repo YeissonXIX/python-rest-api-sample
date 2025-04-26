@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from domain.entities.result import Result
+from shared.result import Result
 from domain.entities.comment_entity import CommentEntity
 
 

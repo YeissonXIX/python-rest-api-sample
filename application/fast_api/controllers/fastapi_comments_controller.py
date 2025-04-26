@@ -1,17 +1,25 @@
 from shared.api_response import ApiResponse
 from http import HTTPStatus
-from domain.repositories.comments_repository import CommentsRepository
+from domain.use_cases.get_all_comments import GetAllCommentsUseCase
 from domain.entities.comment_entity import CommentEntity
+from shared.result import NoContentResult
+from typing import final
 
 
-class CommentsController:
-    comments_repository: CommentsRepository
+@final
+class FastapiCommentsController:
 
-    def __init__(self, comments_repository: CommentsRepository):
-        self.comments_repository = comments_repository
+    def __init__(self, get_all_comments_use_case: GetAllCommentsUseCase):
+        self.get_all_comments_use_case = get_all_comments_use_case
 
     async def get_all(self) -> ApiResponse[list[CommentEntity]]:
-        result = await self.comments_repository.get_all()
+        result = await self.get_all_comments_use_case()
+        if isinstance(result, NoContentResult):
+            return ApiResponse(
+                status_code=HTTPStatus.NO_CONTENT,
+                message=result.message,
+            )
+
         if not result.success:
             return ApiResponse(
                 status_code=HTTPStatus.INTERNAL_SERVER_ERROR,

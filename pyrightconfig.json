@@ -5,5 +5,9 @@
     "reportAssignmentType": false,
     "reportUnknownMemberType": "none",
     "reportExplicitAny": false,
-    "reportAny": false
+    "reportAny": false,
+    "reportUndefinedVariable": false,
+    "ignore": [
+        "test"
+    ]
 }
