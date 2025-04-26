@@ -1,8 +1,10 @@
-from infraestructure.quart.app_factory import create_app
+# from application.quart.setup import create_app
 
-# from infraestructure.fast_api.app_factory import create_app
-
-app = create_app()
+# app = create_app()
 
 # if __name__ == "__main__":
-#    app.run(debug=True)
+#     app.run(debug=True)
+
+from application.fast_api.setup import create_app
+
+app = create_app()

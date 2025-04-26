@@ -1,5 +1,7 @@
 from quart import Blueprint, Response
-from controllers.quart_comments_controller import QuartCommentsController
+from application.quart.controllers.quart_comments_controller import (
+    QuartCommentsController,
+)
 
 
 def create_comments_router(comments_controller: QuartCommentsController):
