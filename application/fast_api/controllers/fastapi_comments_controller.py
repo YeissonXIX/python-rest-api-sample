@@ -1,6 +1,6 @@
 from shared.api_response import ApiResponse
 from http import HTTPStatus
-from domain.use_cases.get_all_comments import GetAllCommentsUseCase
+from domain.use_cases.get_all_comments_use_case import GetAllCommentsUseCase
 from domain.entities.comment_entity import CommentEntity
 from shared.result import NoContentResult
 from typing import final

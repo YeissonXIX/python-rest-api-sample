@@ -5,7 +5,7 @@ from application.quart.controllers.quart_comments_controller import (
 )
 from infraestructure.motor.motor_comments_repository import MongoCommentsRepository
 from infraestructure.motor.motor_client import MotorClient
-from domain.use_cases.get_all_comments import GetAllCommentsUseCase
+from domain.use_cases.get_all_comments_use_case import GetAllCommentsUseCase
 
 
 def create_app():
